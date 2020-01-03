@@ -282,15 +282,27 @@ services:
     depends_on:
       - redis
 
-  locustio:
+  locustio-redis:
     image: locustio/locust
-    hostname: locustio
+    hostname: locustio-redis
+    environment:
+      - "LOCUSTFILE_PATH=/mnt/locust/locustfile.py"
+    links:
+      - redis
+    depends_on:
+      - redis
+    volumes:
+      - ${PWD}/locustio-redis:/mnt/locust
+
+  locustio-kibana:
+    image: locustio/locust
+    hostname: locustio-kibana
     environment:
       - "LOCUSTFILE_PATH=/mnt/locust/locustfile.py"
       - "TARGET_URL=http://kibana"
     links:
-      - logstash-producer
+      - kibana
     depends_on:
-      - logstash-producer
+      - kibana
     volumes:
-      - ${PWD}/locustio:/mnt/locust
+      - ${PWD}/locustio-http:/mnt/locust
