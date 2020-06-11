@@ -1,11 +1,11 @@
 # playground-telemetry
 Docker up a telemetry playground
 
-* `make up       # spin up playground`
-* `make down     # tear down playground`
-* `make config   # dump docker-compose yaml`
-* `make clean    # flush data`
-* `make ps       # list stack containers`
+* `make stack-up   # spin up playground`
+* `make stack-down # tear down playground`
+* `make config     # dump docker-compose yaml`
+* `make clean      # flush data`
+* `make ps         # list stack containers`
 
 # Images in the stack
 ```

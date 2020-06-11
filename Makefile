@@ -4,11 +4,11 @@ config:
 	@env DOCKER_HOST_IP=$(DOCKER_HOST_IP) docker-compose -f docker-compose.yml -f docker-compose.local.yml config
 .PHONY: config
 
-up:
+stack-up:
 	env DOCKER_HOST_IP=$(DOCKER_HOST_IP) docker-compose -f docker-compose.yml -f docker-compose.local.yml  up -d
 .PHONY: up
 
-down:
+stack-down:
 	docker-compose down
 .PHONY: down
 
